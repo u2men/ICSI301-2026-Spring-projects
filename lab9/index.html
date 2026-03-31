@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello</h1>
+    <a href="#/products">Products</a>    
+    <a href="#/about">About</a>    
+    <a href="#/">Home</a>    
+    <div id="app"></div>
+    <script>
+        window.addEventListener("hashchange", e=>{
+            const app = document.querySelector("#app");
+            app.innerHTML=document.location.hash;
+        })
+    </script>
+</body>
+</html>

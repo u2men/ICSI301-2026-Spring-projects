@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        article {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #eee;
+            width: 30vw;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="products">
+        <h1>Products</h1>
+        <div id="prods"></div>
+        <script>
+            class Angllllaa{
+                constructor(name) {
+                    this.name = name;
+                }
+                uzuul() {
+                    return `<h5>${ this.name }</h5>`;
+                }
+                uzuulBig(){
+                    return `<h1>${ this.name }</h1>`;
+                }
+            }
+            
+            class Baraa {
+                #secretCode=123;
+                constructor(product) {
+                    this.name = product.name;
+                    this.price = product.price;
+                    this.pics = product.pics;
+                    this.#secretCode = 1234;
+                }
+                #renderPics() {
+                    let result = "";
+                    this.pics.forEach(e => {
+                        result += `<img src="${e}" alt="${this.name}">`;
+                    });
+                    return result;
+                }
+                renderSlim(){
+                    return `
+                    <article>
+                        <h2>${this.name}</h2>
+                        <p>${this.price}</p>
+                    </article>
+                    `;
+                }
+                render() {
+                    return `
+                    <article>
+                        <h2>${this.name}</h2>
+                        <p>${this.price}</p>
+                        <div class="pics">
+                            ${this.#renderPics()}
+                        </div>
+                    </article>
+                    `;
+                }
+
+            }
+    class Huns extends Baraa {
+        constructor(product) {
+            super(product);
+            this.Calorie = product.calorie;
+        }
+        #renderPics() {
+            let result = "";
+            this.pics.forEach(e => {
+                result += `<img src="${e}" alt="${this.name}">`;
+            });
+            return result;
+        }
+        render() {
+            return `
+                    <article>
+                        <h2>${this.name}</h2>
+                        <p>${this.price}</p>
+                        <p>${this.size}</p>
+                        <div class="pics">
+                            ${this.#renderPics()}
+                        </div>
+                    </article>
+                    `;
+        }
+    }
+            function renderProducts(products) {
+                let result = "";
+                for (const e of products) {
+                    let product;
+                    e.type === "huns" ? 
+                    product = new Huns(e) :
+                    product = new Baraa(e);
+                    result += product.render();
+                }
+                return result;
+            }
+    
+            //     function renderPics(imgs, prodName) {
+            //         let result = "";
+            //         imgs.forEach(e => {
+            //             result += `<img src="${e}" alt="${prodName}">`;
+            //         });
+            //         return result;
+            //     }
+            //     return `
+            // <article>
+            //     <h2>${product.name}</h2>
+            //     <p>${product.price}</p>
+            //     <div class="pics">
+            //         ${renderPics(product.pics, product.name)}
+            //     </div>
+            // </article>
+            // `;
+            // }
+            const products = [
+                {
+                    id1: 10003457,
+                    name: "iPhone 14 Pro Max",
+                    price: 1_000_000,
+                    type:"huns",
+                    calorie:1000,
+                    pics: [
+                        "https://picsum.photos/100",
+                        "https://picsum.photos/100?random=1",
+                        "https://picsum.photos/100?random=2",
+                    ]
+                },
+                {
+                    id1: 10003458,
+                    name: "iPhone 15 Pro Max",
+                    price: 1_000_000,
+                    pics: [
+                        "https://img.com/img.webp",
+                        "https://img.com/img2.webp",
+                        "https://img.com/img3.webp",
+                    ]
+                },
+                {
+                    id1: 10003459,
+                    name: "iPhone 16 Pro Max",
+                    price: 1_000_000,
+                    pics: [
+                        "https://img.com/img.webp",
+                        "https://img.com/img2.webp",
+                        "https://img.com/img3.webp",
+                    ]
+                },
+                {
+                    id1: 10003460,
+                    name: "iPhone 17 Pro Max",
+                    price: 1_000_000,
+                    pics: [
+                        "https://img.com/img.webp",
+                        "https://img.com/img2.webp",
+                        "https://img.com/img3.webp",
+                    ]
+                },
+                {
+                    id1: 10003461,
+                    name: "iPhone 18  Pro Max",
+                    price: 1_000_000,
+                    pics: [
+                        "https://img.com/img.webp",
+                        "https://img.com/img2.webp",
+                        "https://img.com/iphone18promax.webp",
+                    ]
+                }
+            ]
+            const producstHTML = renderProducts(products);
+            document.getElementById("prods").innerHTML = producstHTML;
+        </script>
+</body>
+
+</html>

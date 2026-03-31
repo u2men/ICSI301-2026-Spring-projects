@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .post {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Posts</h1>
+        <div id="posts"></div>
+    </section>
+    <script>
+        const up = {
+            id: 1,
+            t: "Онцлох...",
+            a: "Bi herhen ajiladag be",
+            u: 5602,
+            s: 4,
+            h: 61,
+            z: "https://img.com/img.webp",
+            l: "https://unread.today/c/howiwork-altankhundagat",
+            sections: [
+                {
+                    sedev: "1.carr..",
+                    paragraphs: ["ehen", "2002", "Minii"],
+                }
+            ]
+        };
+        let posts = [];
+        function renderApp() {
+            const postsContainer = document.getElementById("posts");
+            postsContainer.innerHTML = "";
+            posts.forEach(p => {
+                const post = new Post(p);
+                postsContainer.innerHTML += post.render();
+            });
+        }
+        class Post {
+            #age = 0;
+            constructor(post) {
+                this.title = post.title;
+                this.content = post.content;
+                this.user = post.user;
+                this.tags = post.tags;
+                this.comments = post.comments;
+                this.likes = post.likes;
+                this.result = 0;
+                this.#age = 18;
+            }
+            setAge(ag) {
+                if (ag > 17)
+                    this.#age = ag;
+            }
+            #validate() {
+
+            }
+
+            sum(too) {
+                this.result += too;
+                return this;
+            }
+            render() {
+                this.#validate();
+                let commentsHTML = "";
+                this.comments.forEach(c => {
+                    commentsHTML += renderComment(c);
+                });
+
+                return `<article class="post">
+                        <h2>${this.title}</h2>
+                        <p>${this.content}</p>
+                        <p>By: ${this.user}</p>
+                        <p>Likes: ${this.likes}</p>
+                        <div>
+                            ${commentsHTML}
+                        </div>    
+                    </article>
+                    `;
+            }
+        }
+        function renderComment(comment) {
+            return `<article class="comment">
+                        <p>${comment.user}: ${comment.comment} (💖${comment.likes})</p>
+                    </article>`;
+        }
+
+        function getData(dataUrl) {
+            return fetch(dataUrl)
+                .then(r => r.json())
+                .then(d => {
+                return d;
+                })
+                .catch(error => {
+                    console.error('Error fetching data:', error);
+                    return [];
+                });
+        }
+        data = getData("posts.json");
+                console.error('Error fetching data:', error);
+                return [];
+            });
+        renderApp(); 
+    </script>
+</body>
+
+</html>

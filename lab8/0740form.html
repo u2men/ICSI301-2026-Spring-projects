@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script>
+        function Validate() {
+            const form = document.forms[1];
+            // const isValid = form.checkValidity();
+            // form.reportValidity();
+            formData = new FormData(form);
+            for (const [key, value] of formData.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+            return true; // Prevent form submission if form is invalid
+        }
+
+    </script>
+</head>
+
+<body>
+    <form action="https://www.google.com/search">
+        <input type="search" name="q" placeholder="search...">
+        <input type="submit" value=">">
+    </form>
+
+    <form onsubmit="return Validate()" action="https://posttestserver.dev/p/jafx0s6dq51vwt3o/post" method="post">
+        <fieldset>
+            <legend>Personal Information</legend>
+            
+            <label for="nameid">Name:</label>
+            <input type="text" id="nameid" name="name" placeholder="Нэрээ оруулна уу..."><br><br>
+            
+            <label>Email:
+                <input required type="email" id="email" name="email"><br><br>
+            </label>
+            <label>Male
+                <input type="radio" name="gender" value="male">
+            </label>
+            <label>Female
+                <input type="radio" name="gender" value="female">
+            </label>
+            <input type="hidden" name="token" value="12345">
+            <br>
+            <label for="age">Age:</label>
+            <input required pattern="\d{1,3}" type="text" id="age"><br><br>
+        </fieldset>
+
+        <fieldset>
+            <legend>Preferences</legend>
+            <label for="subscribe">Subscribe to newsletter:</label>
+            <input type="checkbox" id="subscribe" name="subscribe"><br><br>
+            <label for="contact">Preferred contact method:</label><br>
+            <input type="radio" id="emailContact" name="contactMethod" value="email">
+            <label for="emailContact">Email</label><br>
+            <input type="radio" id="phoneContact" name="contactMethod" value="phone">
+            <label for="phoneContact">Phone</label><br><br>
+        </fieldset>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

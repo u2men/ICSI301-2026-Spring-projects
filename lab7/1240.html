@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        section {
+            display: flex;
+            padding: 20px;
+            border: 1px solid grey;
+            border-radius: 10px;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        section {
+            display: none;
+        }
+
+        section:has(input[type="radio"]:checked) {
+            display: block;
+        }
+
+
+        label {
+            padding: 10px 20px;
+            background: #007BFF;
+            color: white;
+            border-radius: 24px / 50%;
+            cursor: pointer;
+
+            &:hover {
+                background: #6ae5fb;
+            }
+
+            
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <label for="tab1">Home</label>
+    <label for="tab2">About</label>
+    <label for="tab3">Contact</label>
+    
+    <section id="home">
+        <input id="tab1" type="radio" name="tabs" checked title="Home">
+        <h1>Lab 7: Forms, Events, and Fetch</h1>
+        <p>In this lab, we will explore form validation, event handling, and fetching data from an API.</p>
+    </section>
+    <section id="about">
+        <input id="tab2" type="radio" name="tabs" title="About">
+        <h2>Form Validation</h2>
+        <p>Try submitting the form without filling in the required fields to see the validation in action.</p>
+    </section>
+    <section id="contact">
+        <input id="tab3" type="radio" name="tabs" title="Contact">
+        <h2>Event Handling</h2>
+        <p>Click the red inner box and watch how event phases work.</p>
+    </section>
+</body>
+
+</html>

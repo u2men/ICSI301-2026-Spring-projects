@@ -1,0 +1,60 @@
+[
+    {
+                "title": "My First Post",
+                "content": "This is the content of my first post.",
+                "user": "John Doe",
+                "tags": [
+            "introduction",
+            "welcome",
+            "firstpost"
+        ],
+                "comments": [
+            { "user": "Bat", "comment": "asdfasd fdsa", "likes": 10
+            },
+            { "user": "Gerel", "comment": "asdfasd fdsa"
+            },
+            { "user": "Bat1", "comment": "asdfasd fdsa"
+            },
+            { "user": "Bat2", "comment": "asdfasd fdsa"
+            }
+        ],
+                "likes": 100
+    },
+    {
+                "title": "My Second post",
+                "content": "This is the content of my first post.",
+                "user": "John Doe",
+                "tags": [
+            "introduction",
+            "welcome",
+            "firstpost"
+        ],
+                "comments": [
+            { "user": "Bat", "comment": "asdfasd fdsa", "likes": 101
+            },
+            { "user": "Bat2", "comment": "asdfasd fdsa"
+            }
+        ],
+                "likes": 10
+    },
+    {
+                "title": "My Third post",
+                "content": "This is the content of my first post.",
+                "user": "John Doe",
+                "tags": [
+            "introduction",
+            "welcome",
+            "firstpost"
+        ],
+                "comments": [
+            { "user": "Bat", "comment": "asdfasd fdsa", "likes": 10
+            },
+            { "user": "Gerel", "comment": "asdfasd fdsa"
+            },
+            { "user": "Bat2", "comment": "asdfasd fdsa"
+            }
+        ],
+                "likes": 200
+    }
+]
+

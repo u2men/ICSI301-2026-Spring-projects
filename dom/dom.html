@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        #app {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .product {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #eee;
+            width: 30vw;
+        }
+    </style>
+    <script type="module" src="./product.js"></script>
+
+</head>
+
+<body>
+    <div id="filters"></div>
+    <div id="app"></div>
+    <script type="module">
+        import Product, { DownloadProducts, filterProducts } from './product.js';
+        const qs = (s) => document.querySelector(s);
+        function FilterProds(products, cat) {
+            const filteredProducts = filterProducts(cat, products);
+            const productHTML = filteredProducts.map(p => (new Product(p)).renderSlim()).join("");
+            document.querySelector("#app").innerHTML = productHTML;
+
+        }
+
+
+        let products = await DownloadProducts();
+        FilterProds(products, "beauty");
+        document.querySelector("#filters").innerHTML = `
+        <button id="all">All</button>`;
+
+        const categoriesHTML = products
+            .map(p => `<button>${p.category}</button>`);
+        const categories = [...new Set(categoriesHTML)].join("");
+        document.querySelector("#filters").insertAdjacentHTML("beforeend", categories);
+        document.querySelectorAll("#filters button")
+            .forEach(btn => {
+                btn.addEventListener("click",
+                () =>FilterProds(products, btn.textContent));
+            });
+
+        documetn.querySelector("btn").addEventListener("click", (e) => {
+            if (e.target.tagName === "BUTTON") {
+                FilterProds(products, e.target.textContent);
+            }
+        });
+    </script>
+</body>
+
+</html>

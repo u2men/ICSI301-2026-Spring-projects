@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        #products {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        article {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: calc(25% - 40px);
+            box-sizing: border-box;
+        }
+        .product{
+            border:1px solid red;
+        }
+        article.selected {
+            border-color: #007BFF;
+            background-color: #E0F0FF;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .moreinfo {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script src="./jstest.js"></script>
+</head>
+
+<body>
+    <section id="products">
+        <article class="product">
+            <h2>Product 1</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button>Buy
+                <div class="moreinfo">
+                    <p>More info asfasdf asdfasd fasdfda</p>
+                </div>
+            </button>
+        </article>
+        <article class="product">
+            <h2>Product 2</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button>Buy
+                <div class="moreinfo">
+                    <p>More info asfasdf asdfasd fasdfda</p>
+                </div>
+            </button>
+        </article>
+        <article class="product">
+            <h2>Product 3</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button>Buy
+                <div class="moreinfo">
+                    <p>More info asfasdf asdfasd fasdfda</p>
+                </div>
+            </button>
+        </article>
+        <article>
+            <h2>Product 4</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <button>Buy</button>
+            <div class="moreinfo">
+                <p>More information about Product 4.</p>
+            </div>
+        </article>
+    </section>
+    <script>
+        setupEventListeners();  
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function Check() {
+            const form = document.forms[0];
+            // const isValid = form.checkValidity();
+            // form.reportValidity();
+            const data = new FormData(form);
+            for (const [key, value] of data.entries()) {
+                console.log(`${key}: ${value}`);
+            }
+            return isValid; // Prevent form submission if form is invalid
+        }
+
+    </script>
+    <style>
+        fieldset {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 50vw;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form method="get" onsubmit="return Check()">
+        <fieldset>
+            <label>Хэрэглэгчийн нэр
+                <input type="text" name="u" placeholder="please enter login name">
+            </label>
+            <legend>Personal info</legend>
+            <label for="pass">Нууц үг</label>
+            <input type="password" id="pass" placeholder="please enter password">
+            <input type="hidden" id="token" name="t" value="12344">
+            <input type="email" required name="e" placeholder="please enter email" >
+            <input type="text" required pattern="\d{1,4}" name="age" placeholder="please enter age">
+            <input type="url" name="w" placeholder="please enter website">
+        </fieldset>
+        <input type="file" name="file" id="file">
+        <label> REmember me
+            <input type="checkbox" name="remember">
+        </label>
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

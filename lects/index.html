@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const utas1 = {
+            name: "iPhone",
+            price: 999, 
+            tags: ["electronics", "mobile", "apple"]
+        };
+
+        class Product {
+            #tags=["phone"];
+            constructor(name, price) {
+                this.name = name;
+                this.price = price;
+                this.tags= "default";
+            }
+            #show(){
+                alert(this.name);
+                this.#tags.push("laptop");
+            }
+        }
+
+        const utas = new Product("Utas", 1000);
+        
+
+        fetch('https://dummyjson.com/products')
+            .then(response => response.json())
+            .then(data => {
+                console.log(data.products[0].tags[0]);
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    </script>
+</head>
+
+<body>
+Console deer tags uudig hevlej baigaa.
+</body>
+
+</html>

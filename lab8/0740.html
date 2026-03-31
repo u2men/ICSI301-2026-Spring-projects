@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        article {
+            border: 1px solid black;
+            padding: 10px;
+            width: 300px;
+        }
+    input[type="checkbox"], input[type="radio"] {
+        display: none;
+    }
+    .like {
+        font-size: 2em;
+        cursor: pointer;
+        filter:grayscale(100%);
+
+        &:has(input:checked) {
+            filter:grayscale(0%);
+        }
+    }
+    section{border:1px solid gray; padding:10px; width:300px;}
+    label {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: lightgray;
+        cursor: pointer;
+    }
+    section:not(:has(input:checked)) {
+        display: none;
+    }
+
+    </style>
+</head>
+<body>
+    <!-- <article>
+        <h2>Product</h2>
+        <p>description.....</p>
+        <label class="like">❤️
+            <input type="checkbox">
+        </label>
+    </article> -->
+    <label for="tab1">TAB1</label>
+    <label for="tab2">TAB2</label>
+    <label for="tab3">TAB3</label>
+    <section>
+        <h2>Tab1</h2>
+        <p>tab content....</p>
+        <input type="radio" name="tab" id="tab1" checked>
+    </section>
+    <section>
+        <h2>Tab2</h2>
+        <p>tab content 2 asdfasd la;dkfjl; asdfjas dfas dfkajsd;lkf jasd;lkf ja;sldfj ;lasdfj ;....</p>
+        <input type="radio" name="tab" id="tab2">
+    </section>
+    <section>
+        <h2>Tab3</h2>
+        <p>tab content asfasd fasdf asdfa sdfasdfasdf asdfasd ....</p>
+        <input type="radio" name="tab" id="tab3">
+    </section>
+   
+</body>
+</html>

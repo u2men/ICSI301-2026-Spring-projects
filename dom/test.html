@@ -1,0 +1,70 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        #app {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .product {
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #eee;
+            width: 30vw;
+        }
+    </style>
+    <script type="module" src="./product.js"></script>
+
+</head>
+
+<body>
+    <div id="filters">
+        <button
+            id="all">All</button><button>beauty</button><button>fragrances</button><button>furniture</button><button>groceries</button>
+    </div>
+    <div id="app">
+        <article class="product">
+            <h2>Essence Mascara Lash Princess</h2>
+            <p>9.99</p>
+        </article>
+
+        <article class="product">
+            <h2>Eyeshadow Palette with Mirror</h2>
+            <p>19.99</p>
+        </article>
+
+        <article class="product">
+            <h2>Powder Canister</h2>
+            <p>14.99</p>
+        </article>
+
+        <article class="product">
+            <h2>Red Lipstick</h2>
+            <p>12.99</p>
+        </article>
+
+        <article class="product">
+            <h2>Red Nail Polish</h2>
+            <p>8.99</p>
+        </article>
+    </div>
+   
+   
+
+
+</body>
+
+</html>

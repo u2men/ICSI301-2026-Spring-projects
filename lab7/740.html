@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .category-btn {
+            border: none;
+            background: #bb14e5;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #products {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        article {
+            flex: 1 1 20ch;
+            border: 1px solid black;
+            margin: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #e6fa55;
+            min-width: 20ch;
+            width: 30vw;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="categories"></div>
+    <div id="products"></div>
+    <script type="module">
+        // import {dqs} from './xframework.js';
+        import {renderCats, baseUrl} from './category.js';
+        
+        function getData(url) {
+            // try {
+            //     const data = await fetch(url);
+            //     const json = await data.json();
+            //     return json.products;
+            // } catch (error) {
+            //     console.log(error);
+            // }
+            return fetch(url)
+                .then(data => data.json())
+                .then(json => json.products)
+                .catch(error => console.log(error));
+
+        }
+        class Product {
+            constructor(data) {
+                this.title = data.title;
+                this.price = data.price;
+                this.category = data.category;
+            }
+
+            render() {
+                return `
+                <article>
+                    <h2>${this.title}</h2>
+                    <p>${this.price}</p>
+                    <p>${this.category}</p>
+                </article>
+                `;
+            }
+        }
+        
+        const products = getData("https://dummyjson.com/products");
+        products.then(d => {
+            const uniqueCats = [...new Set(d.map(p => p.category))];
+            renderCats(uniqueCats);
+
+            document
+                .querySelectorAll(".category-btn")
+                .forEach(btn => {
+                    btn.addEventListener("click", e => {
+                        const cat = e.target.innerText;
+                        const filteredProducts = products.then(d => d.filter(p => p.category === cat));
+                        filteredProducts.then(d => {
+                            const productsHTML = d
+                                .map(p => (new Product(p)).render())
+                                .join("");
+
+                            document
+                                .querySelector("#products")
+                                .innerHTML = productsHTML;
+                        });
+
+                    });
+
+                    products.then(d => {
+                        const productsHTML = d
+                            .map(p => (new Product(p)).render())
+                            .join("");
+                        document.querySelector("#products").innerHTML = productsHTML;
+                        // $("#products").innerHTML = productsHTML;
+                    });
+                });
+        });
+    </script>
+</body>
+
+</html>

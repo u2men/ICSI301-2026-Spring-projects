@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section id="btns">
+    <button>Click me1</button><button>Click me2</button><button>Click me3</button>
+</section>
+<script>
+    const btnsection = document.getElementById('btns');
+    const btns = document.querySelectorAll('#btns button');
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            alert(`You clicked ${btn.textContent}`);
+        }, true);
+    });
+    btnsection.addEventListener('click', (e) => {
+        // e.stopPropagation();
+        alert('You clicked a button!');
+    }, true);
+</script>
+</body>
+</html>
