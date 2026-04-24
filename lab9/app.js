@@ -1,9 +1,9 @@
 import nav from "./components/nav.js";
 const routes = [
-    { item: "Ger", lnk: "#/", component: "home" },
-    { item: "About", lnk: "#/about", component: "about" },
-    { item: "Products", lnk: "#/products", component: "products" },
-    { item: "Contact", lnk: "#/contact", component: "contact" }];
+    { item: "Home", lnk: "#/", component: "home" },
+    { item: "Тухай", lnk: "#/about", component: "about" },
+    { item: "Бүтээгдэхүүн", lnk: "#/products", component: "products" },
+    { item: "Холбоо барих", lnk: "#/contact", component: "contact" }];
 function render() {
     const currentRoute = routes.find(r => r.lnk === document.location.hash)?.component || "home";
 

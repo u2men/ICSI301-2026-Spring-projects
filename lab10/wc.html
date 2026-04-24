@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="bundle.js"></script>
+<style>
+        num-product article{
+            border:1px solid grey;
+             margin: 5px;
+                padding: 5px;
+                border-radius:4px;
+        }
+        num-main{
+            display: inline-block;
+                width: 60%;
+                vertical-align: top;
+        }
+        aside{
+            display: inline-block;
+                width: 30%;
+                vertical-align: top;
+
+        }
+        num-product article.full{
+            background-color: #555;
+            color: white;
+        }
+
+        .ontsgoi{
+            background-color: #555;
+            color: white;
+            border-radius:50%;
+        }
+        .heviin{background-color: aqua; color:red;}
+        
+        num-like-btn{
+            button{
+                background-color:#fff;
+                border:0;
+            }
+            span{font-size:1.5rem;}
+        }
+    </style>
+</head>
+
+<body>
+  
+   
+   <div id="container"></div>
+
+<script>
+    document.querySelector('#container').innerHTML = `
+     <num-header>hdr</num-header>
+    <num-main>Main
+        <num-product img="https://picsum.photos/150/100?random=1" mode="full" bgcolor="blue" type="A" text="Product 1"></num-product>
+        <num-product img="https://picsum.photos/150/100?random=2" mode="slim" bgcolor="#696" number="2" type="B" text="Product 2"></num-product>
+        <num-product img="https://picsum.photos/150/100?random=3" mode="asdf" bgcolor="#967" number="3" type="C" text="Product 3"></num-product>
+        <num-product img="https://picsum.photos/150/100?random=3" mode="slim" bgcolor="#969" number="4" type="D" text="Product 4"></num-product>
+    </num-main>
+    <aside>
+        <num-cart></num-cart>
+    </aside>
+    <num-footer>Foo</num-footer>`;
+</script>
+</body>
+
+</html>
