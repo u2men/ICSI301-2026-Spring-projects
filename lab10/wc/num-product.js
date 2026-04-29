@@ -29,7 +29,7 @@ class NumProduct extends HTMLElement {
     render() {
         this.innerHTML = `
         <article class=${this.cls}>
-    ${this.gorim==='full' ? `<img src="${this.zurag}" alt="${this.baraaniiNer}">` : ''}
+        ${this.gorim === 'full' ? `<img src="${this.zurag}" alt="${this.baraaniiNer}">` : ''}
         <h2>${this.baraaniiNer}</h2>
         ${this.gorim === 'full' ?
                 `<p>Number: ${this.id}</p>

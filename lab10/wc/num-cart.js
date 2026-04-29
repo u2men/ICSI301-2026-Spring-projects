@@ -1,7 +1,5 @@
 class NumCart extends HTMLElement {
     #items = new Map();
-
-
     constructor() {
         super();
     }
@@ -27,7 +25,8 @@ class NumCart extends HTMLElement {
         }
     }
     connectedCallback() {
-        window.addEventListener('productAdded', (event) => {
+        window.addEventListener('productAdded',
+            (event) => {
             this.AddProduct(event.detail);
         });
     }
